@@ -4,6 +4,7 @@ import Header from './components/Header'
 import PizzaBlock from './components/PizzaBlock'
 import Sort from './components/Sort'
 import './scss/app.scss'
+import { Skeleton } from './components/PizzaBlock/Skeleton'
 
 interface IPizza {
 	id: number
@@ -41,15 +42,20 @@ function App() {
 						<Categories />
 						<Sort />
 					</div>
-					<h2 className='content__title'>Все пиццы</h2>
 					{pizzas.length ? (
-						<div className='content__items'>
+						<>
+							<h2 className='content__title'>Все пиццы</h2>
+							<div className='content__items'>
 							{pizzas.map(obj => (
 								<PizzaBlock key={obj.id} {...obj} />
 							))}
 						</div>
+						</>
 					) : (
-						<div className='content__error-info'>Загрузка пиццы...</div>
+						<>
+						<h2 className='content__title'>Загрузка пиццы</h2>
+						<Skeleton />
+						</>
 					)}
 				</div>
 			</div>
