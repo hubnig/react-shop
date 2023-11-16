@@ -47,8 +47,8 @@ function App() {
 					{isLoading ? (
 						<>
 							<h2 className='content__title'>Загрузка пиццы</h2>
-							{[...new Array(8)].map((_, index) => (
-								<Skeleton key={index}/>
+							{[...new Array(8).keys()].map(key => (
+								<Skeleton key={key} />
 							))}
 						</>
 					) : (
